@@ -1,0 +1,52 @@
+{%extends "layout.html"%}
+{%block body%}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="index.html">Technical Blogs</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+
+                <li><a href="/contact">Contact</a></li>
+                
+
+            </ul>
+        </nav><!-- .nav-menu -->
+
+
+
+    </div>
+</header><!-- End Header -->
+
+<main id="main">
+
+
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <img src="assets/img/course-details.jpg" class="img-fluid" alt="">
+                    <h3>{{r.name}}</h3>
+                    <p>
+                        {{r.content}}
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Cource Details Section -->
+
+
+
+</main><!-- End #main -->
+
+{%endblock%}

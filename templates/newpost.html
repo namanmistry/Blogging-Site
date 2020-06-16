@@ -1,0 +1,86 @@
+{%extends "layout.html"%}
+{% block body%}
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo mr-auto"><a href="index.html">Technical Blogs</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+
+        <li><a href="/contact">Contact</a></li>
+        
+
+      </ul>
+    </nav><!-- .nav-menu -->
+
+
+
+  </div>
+</header><!-- End Header -->
+<section style="padding-top: 100px;">
+  <div class="col-md-10 mt-5 mx-auto">
+    <div class="container mx-auto">
+
+    <form action="/upload_post" method="post" enctype="multipart/form-data" >
+        
+        <div class="form-group">
+          <input class="form-control" name="srno"  data-rule="required"
+            data-msg="Please write something for us" placeholder="srno"></input>
+          <div class="validate"></div>
+        </div>
+        
+        <div class="form-group">
+          <textarea class="form-control" name="title" rows="5" data-rule="required"
+            data-msg="Please write something for us" placeholder="Title"></textarea>
+          <div class="validate"></div>
+        </div>
+        
+      
+      <div class="form-group">
+        <input type="text" class="form-control" name="slug" id="subject" placeholder="slug" data-rule="minlen:4"
+          data-msg="Please enter at least 8 chars of subject" />
+        <div class="validate"></div>
+      </div>
+      
+      {%for i in range(10)%}
+      <label for="">{{i}}</label>
+      <div class="form-group">
+        <input class="form-control" name="startseotag{{i}}"  data-rule="required"
+          data-msg="Please write something for us" placeholder="start tag {{i}}"></input>
+        <div class="validate"></div>
+      </div>
+      
+      <div class="form-group">
+        <textarea class="form-control" name="content{{i}}" rows="5" colums="200" data-rule="required"
+          data-msg="Please write something for us" placeholder="content{{i}}"></textarea>
+        <div class="validate"></div>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="endseotag{{i}}"  data-rule="required"
+          data-msg="Please write something for us" placeholder="end tag {{i}}"></input>
+        <div class="validate"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6 mx-auto">
+            <h2>Upload A File no. {{i}}</h2>
+            <input name="file{{i}}" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;" id="sendMessageButton">
+        </div>
+      {%endfor%}
+      
+      
+       
+    </div>
+    <button style="background-color: #5f86cf;" class="btn btn-submit btn-block" type="submit">Post</button>
+    </form>
+  </div>
+
+  </div>
+
+</section>
+<hr>
+{%endblock%}

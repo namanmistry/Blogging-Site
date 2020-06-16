@@ -1,0 +1,331 @@
+{%extends "layout.html"%}
+{% block body%}
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo mr-auto"><a href="index.html">Technical Blogs</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+
+        <li><a href="/contact">Contact</a></li>
+
+
+      </ul>
+    </nav><!-- .nav-menu -->
+
+
+
+  </div>
+</header><!-- End Header -->
+<section style="padding-top: 100px;">
+
+  <div class="col-md-10 mt-5 mx-auto">
+    <div class="container mx-auto">
+      <img src="/static/images/{{srno}}.jpg" width="500" class="img-fluid" alt="">
+      <form action="/edit/{{post.srno}}" method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <input class="form-control" name="srno" data-rule="required" data-msg="Please write something for us"
+            value="{{post.srno}}"></input>
+          <div class="validate"></div>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-control" name="title" rows="5" data-rule="required"
+            data-msg="Please write something for us" >{{post.title}}</textarea>
+          <div class="validate"></div>
+        </div>
+
+
+        <div class="form-group">
+          <input type="text" class="form-control" name="slug" id="subject" value="{{post.slug}}" data-rule="minlen:4"
+            data-msg="Please enter at least 8 chars of subject" />
+          <div class="validate"></div>
+        </div>
+
+        <!-- 0 -->
+        <div class="form-group">
+
+          <label for="">0</label>
+          <input class="form-control" name="startseotag0" data-rule="required" data-msg="Please write something for us"
+            value="{{seo.sseo0}}"></input>
+          <div class="validate"></div>
+        </div>
+
+
+        <div class="form-group">
+          <textarea class="form-control" name="content0" rows="5" colums="200" data-rule="required"
+            data-msg="Please write something for us">{{post.content0}}</textarea>
+          <div class="validate"></div>
+        </div>
+        <div class="form-group">
+          <input class="form-control" name="endseotag0" data-rule="required" data-msg="Please write something for us"
+            value="{{seo.eseo0}}"></input>
+          <div class="validate"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 mx-auto">
+            <h2>Upload A File no. 0</h2>
+            <input name="file0" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+              id="sendMessageButton">
+          </div>
+
+          <img src="/static/images/{{post.srno}}.0.jpg" width="500" alt="">
+          <!-- 1 -->
+          <div class="form-group">
+
+            <label for="">1</label>
+            <input class="form-control" name="startseotag1" data-rule="required"
+              data-msg="Please write something for us" value="{{seo.sseo1}}"></input>
+            <div class="validate"></div>
+          </div>
+
+
+          <div class="form-group">
+            <textarea class="form-control" name="content1" rows="5" colums="200" data-rule="required"
+              data-msg="Please write something for us" placeholder="content">{{post.content1}}</textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="form-group">
+            <input class="form-control" name="endseotag1" data-rule="required" data-msg="Please write something for us"
+              value="{{seo.eseo1}}"></input>
+            <div class="validate"></div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6 mx-auto">
+              <h2>Upload A File no. 1</h2>
+              <input name="file1" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                id="sendMessageButton">
+            </div>
+            <img src="/static/images/{{post.srno}}.1.jpg" width="500" alt="">
+            <!-- 2 -->
+            <div class="form-group">
+              <label for="">2</label>
+
+              <input class="form-control" name="startseotag2" data-rule="required"
+                data-msg="Please write something for us" value="{{seo.sseo2}}"></input>
+              <div class="validate"></div>
+            </div>
+
+
+            <div class="form-group">
+              <textarea class="form-control" name="content2" rows="5" colums="200" data-rule="required"
+                data-msg="Please write something for us" placeholder="content">{{post.content2}}</textarea>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" name="endseotag2" data-rule="required"
+                data-msg="Please write something for us" value="{{seo.eseo2}}"></input>
+              <div class="validate"></div>
+            </div>
+            <div class="form-group">
+              <div class="col-md-6 mx-auto">
+                <h2>Upload A File no. 2</h2>
+                <input name="file2" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                  id="sendMessageButton">
+              </div>
+              <img src="/static/images/{{post.srno}}.2.jpg" width="500" alt="">
+              <!-- 3 -->
+              <div class="form-group">
+                <label for="">3</label>
+
+                <input class="form-control" name="startseotag3" data-rule="required"
+                  data-msg="Please write something for us" value="{{seo.sseo3}}"></input>
+                <div class="validate"></div>
+              </div>
+
+
+              <div class="form-group">
+                <textarea class="form-control" name="content3" rows="5" colums="200" data-rule="required"
+                  data-msg="Please write something for us" placeholder="content">{{post.content3}}</textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" name="endseotag" data-rule="required"
+                  data-msg="Please write something for us" value="{{seo.eseo3}}"></input>
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-6 mx-auto">
+                  <h2>Upload A File no. 3</h2>
+                  <input name="file3" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                    id="sendMessageButton">
+                </div>
+                <img src="/static/images/{{post.srno}}.3.jpg" width="500" alt="">
+                <!-- 4 -->
+                <div class="form-group">
+                  <label for="">4</label>
+
+                  <input class="form-control" name="startseotag4" data-rule="required"
+                    data-msg="Please write something for us" value="{{seo.sseo4}}"></input>
+                  <div class="validate"></div>
+                </div>
+
+
+                <div class="form-group">
+                  <textarea class="form-control" name="content4" rows="5" colums="200" data-rule="required"
+                    data-msg="Please write something for us" placeholder="content">{{post.content4}}</textarea>
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="endseotag4" data-rule="required"
+                    data-msg="Please write something for us" value="{{seo.eseo4}}"></input>
+                  <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                  <div class="col-md-6 mx-auto">
+                    <h2>Upload A File no. 4</h2>
+                    <input name="file4" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                      id="sendMessageButton">
+                  </div>
+                  <img src="/static/images/{{post.srno}}.4.jpg" width="500" alt="">
+                  <!-- 5 -->
+                  <div class="form-group">
+                    <label for="">5</label>
+
+                    <input class="form-control" name="startseotag5" data-rule="required"
+                      data-msg="Please write something for us" value="{{seo.sseo5}}"></input>
+                    <div class="validate"></div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <textarea class="form-control" name="content5" rows="5" colums="200" data-rule="required"
+                      data-msg="Please write something for us" placeholder="content">{{post.content5}}</textarea>
+                    <div class="validate"></div>
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="endseotag" data-rule="required"
+                      data-msg="Please write something for us" value="{{seo.eseo5}}"></input>
+                    <div class="validate"></div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-6 mx-auto">
+                      <h2>Upload A File no. 5</h2>
+                      <input name="file5" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                        id="sendMessageButton">
+                    </div>
+                    <img src="/static/images/{{post.srno}}.5.jpg" width="500" alt="">
+                    <!-- 6 -->
+                    <div class="form-group">
+                      <label for="">6</label>
+
+                      <input class="form-control" name="startseotag6" data-rule="required"
+                        data-msg="Please write something for us" value="{{seo.sseo6}}"></input>
+                      <div class="validate"></div>
+                    </div>
+
+
+                    <div class="form-group">
+                      <textarea class="form-control" name="content6" rows="5" colums="200" data-rule="required"
+                        data-msg="Please write something for us" placeholder="content">{{post.content6}}</textarea>
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                      <input class="form-control" name="endseotag6" data-rule="required"
+                        data-msg="Please write something for us" value="{{seo.eseo6}}"></input>
+                      <div class="validate"></div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-md-6 mx-auto">
+                        <h2>Upload A File no. 6</h2>
+                        <input name="file6" type="file" class="mx-auto btn btn-block" style="background-color: #5f86cf;"
+                          id="sendMessageButton">
+                      </div>
+                      <img src="/static/images/{{post.srno}}.6.jpg" width="500" alt="">
+                      <!-- 7 -->
+                      <div class="form-group">
+                        <label for="">7</label>
+
+                        <input class="form-control" name="startseotag7" data-rule="required"
+                          data-msg="Please write something for us" value="{{seo.sseo7}}"></input>
+                        <div class="validate"></div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <textarea class="form-control" name="content7" rows="5" colums="200" data-rule="required"
+                          data-msg="Please write something for us" placeholder="content">{{post.content7}}</textarea>
+                        <div class="validate"></div>
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control" name="endseotag7" data-rule="required"
+                          data-msg="Please write something for us" value="{{seo.eseo7}}"></input>
+                        <div class="validate"></div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-6 mx-auto">
+                          <h2>Upload A File no. 7</h2>
+                          <input name="file7" type="file" class="mx-auto btn btn-block"
+                            style="background-color: #5f86cf;" id="sendMessageButton">
+                        </div>
+                        <img src="/static/images/{{post.srno}}.7.jpg" width="500" alt="">
+                        <!-- 8 -->
+                        <div class="form-group">
+                          <label for="">8</label>
+
+                          <input class="form-control" name="startseotag8" data-rule="required"
+                            data-msg="Please write something for us" value="{{seo.sseo8}}"></input>
+                          <div class="validate"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                          <textarea class="form-control" name="content8" rows="5" colums="200" data-rule="required"
+                            data-msg="Please write something for us" placeholder="content">{{post.content8}}</textarea>
+                          <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                          <input class="form-control" name="endseotag8" data-rule="required"
+                            data-msg="Please write something for us" value="{{seo.eseo8}}"></input>
+                          <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-md-6 mx-auto">
+                            <h2>Upload A File no. 8</h2>
+                            <input name="file8" type="file" class="mx-auto btn btn-block"
+                              style="background-color: #5f86cf;" id="sendMessageButton">
+                          </div>
+                          <img src="/static/images/{{post.srno}}.8.jpg" width="500" alt="">
+                          <!-- 9 -->
+                          <div class="form-group">
+                            <label for="">9</label>
+
+                            <input class="form-control" name="startseotag9" data-rule="required"
+                              data-msg="Please write something for us" value="{{seo.sseo9}}"></input>
+                            <div class="validate"></div>
+                          </div>
+
+
+                          <div class="form-group">
+                            <textarea class="form-control" name="content9" rows="5" colums="200" data-rule="required"
+                              data-msg="Please write something for us"
+                              placeholder="content">{{post.content9}}</textarea>
+                            <div class="validate"></div>
+                          </div>
+                          <div class="form-group">
+                            <input class="form-control" name="endseotag9" data-rule="required"
+                              data-msg="Please write something for us" value="{{seo.eseo9}}"></input>
+                            <div class="validate"></div>
+                          </div>
+                          <div class="form-group">
+                            <div class="col-md-6 mx-auto">
+                              <h2>Upload A File no. 9</h2>
+                              <input name="file9" type="file" class="mx-auto btn btn-block"
+                                style="background-color: #5f86cf;" id="sendMessageButton">
+                            </div>
+                            <img src="/static/images/{{post.srno}}.9.jpg" width="500" alt="">
+
+                            <button onclick="myfunc2()" class="btn btn-submit btn-block"
+                              style="background-color: #5f86cf;" type="submit">Post edited post</button>
+      </form>
+    </div>
+  </div>
+</section>
+<hr>
+{%endblock%}

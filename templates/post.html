@@ -1,0 +1,83 @@
+{%extends "layout.html"%}
+{%block body%}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+  <div class="container d-flex align-items-center">
+
+    <h1 class="logo mr-auto"><a href="index.html">Technical Blogs</a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    
+
+    <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+       
+      </ul>
+    </nav><!-- .nav-menu -->
+
+
+
+  </div>
+</header><!-- End Header -->
+
+  <main id="main">
+
+
+    <!-- ======= Cource Details Section ======= -->
+    <section id="course-details" class="course-details">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-8">
+            
+            
+            <h3>{{post.title}}</h3>
+              {%set var=post.srno%}
+              {%set img=var%}
+              {{seo_tag.sseo0|safe}}{{post.content0}}{{seo_tag.eseo0|safe}}<br>
+              <img src="/static/images/{{img}}.0.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo1|safe}}{{post.content1}}{{seo_tag.eseo1|safe}}<br>
+              <img src="/static/images/{{img}}.1.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo2|safe}}{{post.content2}}{{seo_tag.eseo2|safe}}<br>
+              <img src="/static/images/{{img}}.2.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo3|safe}}{{post.content3}}{{seo_tag.eseo3|safe}}<br>
+              <img src="/static/images/{{img}}.3.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo4|safe}}{{post.content4}}{{seo_tag.eseo4|safe}}<br>
+              <img src="/static/images/{{img}}.4.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo5|safe}}{{post.content5}}{{seo_tag.eseo5|safe}}<br>
+              <img src="/static/images/{{img}}.5.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo6|safe}}{{post.content6}}{{seo_tag.eseo6|safe}}<br>
+              <img src="/static/images/{{img}}.6.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo7|safe}}{{post.content7}}{{seo_tag.eseo7|safe}}<br>
+              <img src="/static/images/{{img}}.7.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo8|safe}}{{post.content8}}{{seo_tag.eseo8|safe}}<br>
+              <img src="/static/images/{{img}}.8.jpg" class="img-fluid" alt="">
+              {{seo_tag.sseo9|safe}}{{post.content9}}{{seo_tag.eseo9|safe}}<br>
+              <img src="/static/images/{{img}}.9.jpg" class="img-fluid" alt="">
+              
+              
+              <div class="count">
+                <label id="count">{{post.like}}</label>
+              </div>
+          </div>
+          <div class="col-md-12">
+            <div class="button-group">
+              <button id="likeBtn" class="btn btn-block btn-info col-md-4" style="background-color: #5f86cf;"><i
+                  class="fa fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      
+    </section><!-- End Cource Details Section -->
+
+   
+    
+  </main><!-- End #main -->
+
+  {%endblock%}

@@ -1,0 +1,71 @@
+{%extends "layout.html"%}
+{% block body%}
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <h1 class="logo mr-auto"><a href="index.html">Technical Blogs</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+        
+        <nav class="nav-menu d-none d-lg-block">
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+                
+            </ul>
+        </nav><!-- .nav-menu -->
+    </div>
+</header><!-- End Header -->
+
+
+<section style="padding-top: 100px;">
+<div class="container" data-aos="fade-down">
+    
+    <hr>
+    <form action="/upload" method="post">
+        <div class="form-group">
+            <div class="col-md-6 mx-auto">
+                <h2>Upload a new post</h2>
+                <button class="btn btn-block" style="background-color: #5f86cf;" type="submit">Upload</button>
+            </div>
+        </div>
+    </form>
+    <form action="/logout" method="post">
+        <div class="clearfix">
+            <div class="col-md-6 mx-auto">
+                <button class="btn btn-block text-center" style="background-color: #5f86cf;" type="submit">Log-Out</button>
+            </div>
+        </div>
+    </form>
+</div>
+    <hr>
+
+<div class="container" data-aos="fade-up">
+    <table class="table table-hover table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Srno</th>
+                <th scope="col">Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for post in content%}
+            <tr>
+
+                <th scope="row">{{post.srno}}</th>
+                <td >{{post.title}}</td>
+                <td>{{post.date}}</td>
+                <td><form action="/edit_viewer/{{post.srno}}" method="post"><button >Edit</button></form></td>
+                <td><form action="/delete/{{post.srno}}" method="post"><button  onclick="myfunc3()">Delete</button></form></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+</section>
+{%endblock%}
