@@ -38,7 +38,7 @@ class review1(db.Model):
     message = db.Column(db.String(150), nullable=False)
     subject = db.Column(db.String(15), nullable=False)
     date = db.Column(db.String(12), nullable=True)
- class contact(db.Model):
+class contact(db.Model):
 
     srno = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False)
