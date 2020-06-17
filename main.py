@@ -283,5 +283,77 @@ def delete_post(srno):
         return redirect(url_for('dashboard'))
 
     return render_template('section.html',likes=posts.like)
+
+@app.route('/edit/<string:srno1>', methods=['GET', 'POST'])
+def edit(srno1):
+    if request.method == 'POST':
+        post = blogpost.query.filter_by(srno=srno1).first()
+        
+        srno = request.form.get('srno')
+        title = request.form.get('title')
+        slug = request.form.get('slug')
+        content=[]
+        for i in range(10):
+            content.append(request.form.get(f'content{i}'))
+        
+        post.content0=content[0]
+        post.content1=content[1]
+        post.content2=content[2]
+        post.content3=content[3]
+        post.content4=content[4]
+        post.content5=content[5]
+        post.content6=content[6]
+        post.content7=content[7]
+        post.content8=content[8]
+        post.content9=content[9]
+
+        post.srno = srno
+        post.title = title
+        post.slug = slug
+        db.session.commit()
+        #getting the sseo
+        seo_viewer=seo.query.filter_by(srno=srno1).first()
+        sseo=[]
+        eseo=[]
+        for i in range(10):
+            sseo.append(request.form.get(f'startseotag{i}'))
+        for i in range(10):
+            eseo.append(request.form.get(f'endseotag{i}'))
+        seo_viewer.sseo0=sseo[0]
+        seo_viewer.sseo1=sseo[1]
+        seo_viewer.sseo2=sseo[2]
+        seo_viewer.sseo3=sseo[3]
+        seo_viewer.sseo4=sseo[4]
+        seo_viewer.sseo5=sseo[5]
+        seo_viewer.sseo6=sseo[6]
+        seo_viewer.sseo7=sseo[7]
+        seo_viewer.sseo8=sseo[8]
+        seo_viewer.sseo9=sseo[9]
+
+        seo_viewer.eseo0=eseo[0]
+        seo_viewer.eseo1=eseo[1]
+        seo_viewer.eseo2=eseo[2]
+        seo_viewer.eseo3=eseo[3]
+        seo_viewer.eseo4=eseo[4]
+        seo_viewer.eseo5=eseo[5]
+        seo_viewer.eseo6=eseo[6]
+        seo_viewer.eseo7=eseo[7]
+        seo_viewer.eseo8=eseo[8]
+        seo_viewer.eseo9=eseo[9]
+        db.session.commit()
+        
+
+        
+        return redirect(url_for('dashboard'))
+
+    else:
+        return redirect(url_for('dashboard'))
+@app.route('/edit_viewer/<string:srno>', methods=['GET', 'POST'])
+def edit_viewer(srno):
+    post = blogpost.query.filter_by(srno=srno).first()
+    seo_viewer=seo.query.filter_by(srno=srno).first()
+   
+    return render_template('edit.html',post=post,seo=seo_viewer
+    )
 if __name__=='__main__':
     app.run()
