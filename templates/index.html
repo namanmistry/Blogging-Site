@@ -73,9 +73,70 @@
 
 
 
- 
+  <!-- ======= Features Section ======= -->
+  <section style="padding-top: 20px;" id="features" class="features">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Blogs</h2>
+        <p>List of Blogs</p>
+      </div>
+
+      <div data-aos="zoom-in" data-aos-delay="100">
+
+        {%for post in posts%}
+        <a href="/post/{{post.srno}}">
+        <div style="display: block;" class="icon-box">
+          
+          
+          <div class="container" style="overflow-y: scroll;">
+            <h2>{{post.title}}</h2><br>
+            {{post.content1[0:100]}}
+            
+          </div>
 
 
+        </div></a>
+        {%endfor%}
+
+        <div class="clearfix">
+          <a style="background-color: #5f86cf ;" class="btn btn-primary float-right" href="{{next}}">Next Posts &rarr;</a>
+          <a  style="background-color: #5f86cf ;" class="btn btn-primary float-left" href="{{prev}}">&larr; Previous Posts </a>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Features Section -->
+
+  <!-- ======= Popular Courses Section ======= -->
+  <section  style="padding-top: 20px;" id="features" class="features">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Blogs</h2>
+        <p>Popular Blogs</p>
+      </div>
+      <div class="container" data-aos="fade-up">
+        <div style="display: block;" data-aos="zoom-in" data-aos-delay="100">
+
+          {%for post in posts%}
+          <a href="/post/{{post.srno}}">
+          <div style="display: block;" class="icon-box">
+            
+            <h2>{{post.title}}</h2><br>
+            <div style="@media (min-width: 360px){display: none;};" id="content1">
+              {{post.content}}
+            </div>
+
+
+          </div></a>
+          {%endfor%}
+        
+
+        </div>
+      </div>
+    </div>
+  </section><!-- End Popular Courses Section -->
 
   <!-- ======= Trainers Section ======= -->
   <section id="trainers" class="trainers">
