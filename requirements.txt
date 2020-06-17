@@ -29,7 +29,7 @@ Pillow==7.1.2
 pipwin==0.5.0
 playsound==1.2.2
 plyer==1.4.3
-
+psycopg2==2.8.5
 PyAutoGUI==0.9.50
 pycodestyle==2.6.0
 pygame==1.9.6
