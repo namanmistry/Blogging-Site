@@ -1,6 +1,8 @@
 from flask import Flask,render_template
 
 app=Flask(__name__)
+with open('config.json', 'r') as c:
+    params = json.load(c)
 app.config['DATABASE_URL'] = params['params']['data-base']
 class blogpost(db.Model):
 
