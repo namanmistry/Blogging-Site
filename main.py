@@ -47,9 +47,34 @@ class contact(db.Model):
     message = db.Column(db.String(400), nullable=False)
     subject = db.Column(db.String(205), nullable=False)
     date = db.Column(db.String(12), nullable=True)
+class seo(db.Model):
+
+  
+    sseo0 = db.Column(db.String(20), nullable=False)
+    eseo0 = db.Column(db.String(20), nullable=False)
+    sseo1 = db.Column(db.String(20), nullable=False)
+    eseo1 = db.Column(db.String(20), nullable=False)
+    sseo2 = db.Column(db.String(20), nullable=False)
+    eseo2 = db.Column(db.String(20), nullable=False)
+    sseo3= db.Column(db.String(20), nullable=False)
+    eseo3 = db.Column(db.String(20), nullable=False)
+    sseo4 = db.Column(db.String(20), nullable=False)
+    eseo4 = db.Column(db.String(20), nullable=False)
+    sseo5 = db.Column(db.String(20), nullable=False)
+    eseo5 = db.Column(db.String(20), nullable=False)
+    sseo6 = db.Column(db.String(20), nullable=False)
+    eseo6 = db.Column(db.String(20), nullable=False)
+    sseo7= db.Column(db.String(20), nullable=False)
+    eseo7 = db.Column(db.String(20), nullable=False)
+    sseo8 = db.Column(db.String(20), nullable=False)
+    eseo8 = db.Column(db.String(20), nullable=False)
+    sseo9 = db.Column(db.String(20), nullable=False)
+    eseo9 = db.Column(db.String(20), nullable=False)
+    srno = db.Column(db.Integer,   primary_key=True, nullable=False)
     
 @app.route('/')
 def home():
+    posts = blogpost.query.filter_by().all()
     last = math.ceil(len(posts)/3)
     page = request.args.get('page')
     if not str(page).isnumeric():
@@ -79,7 +104,11 @@ def review_viewer(srno):
 
     reviews = review1.query.filter_by(srno=srno).first()
     return render_template('review_viewer.html', reviews=reviews)
-
+@app.route('/post/<string:srno>', methods=['GET'])
+def post_viewer(srno):
+    posts = blogpost.query.filter_by(srno=srno).first()
+    seo_tag=seo.query.filter_by(srno=srno).first()
+    return render_template('post.html', post=posts,seo_tag=seo_tag)
 @app.route('/submit', methods=['POST', 'GET'])
 def feedback_form():
 
