@@ -224,17 +224,8 @@ def new_post():
                     srno=srno)
         db.session.add(entry_seo)
         db.session.commit()
-        new_file=[]
-        for i in range(10):
-            new_file.append(request.files[f'file{i}'])
-            if new_file[i].filename != "":
-                new_file[i].save(os.path.join(
-                    app.config['UPLOAD_FOLDER'], secure_filename(new_file[i].filename)))
-                os.rename(
-                f'static\img\\{new_file[i].filename}', f'static\img\\{srno+"."+str(i)}.jpg')
-
-            elif new_file[i].filename=="":
-                pass
+        
+        
         entry = blogpost(srno=srno, title=title, content0=content0,
          content1=content1,
           content2=content2,
