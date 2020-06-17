@@ -257,5 +257,17 @@ def new_post_viewer():
     # last=blogpost.query.filter_by().all()
     # last_post=last[-1]
     return render_template('newpost.html')
+                    
+@app.route('/likebutton/<string:srno>', methods=['GET', 'POST'])
+def like(srno):
+
+    posts = blogpost.query.filter_by(srno=srno).first()
+    likes = posts.like
+    new_like = likes+1
+    posts.like = new_like
+
+    db.session.commit()
+
+    return render_template('section.html',likes=posts.like)
 if __name__=='__main__':
     app.run()
