@@ -271,11 +271,12 @@ def like(srno):
 def delete_post(srno):
     if request.method == 'POST':
         data = blogpost.query.filter_by(srno=srno).first()
+        db.session.delete(data)
+        db.session.commit()
         seo1=seo.query.filter_by(srno=srno).first()
         db.session.delete(seo1)
         db.session.commit()
-        db.session.delete(data)
-        db.session.commit()
+        
         return redirect(url_for('dashboard'))
 
     else:
