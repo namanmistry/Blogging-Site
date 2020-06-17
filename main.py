@@ -276,9 +276,6 @@ def delete_post(srno):
         db.session.commit()
         db.session.delete(data)
         db.session.commit()
-        for i in range(10):
-            if os.path.isfile(f'static\img\{srno+"."+str(i)}.jpg'):
-                os.remove(f'static\img\{srno+"."+str(i)}.jpg')
         return redirect(url_for('dashboard'))
 
     else:
