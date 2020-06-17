@@ -258,6 +258,7 @@ def like(srno):
     posts.like = new_like
 
     db.session.commit()
+    return render_template('section.html',likes=posts.like)
 @app.route('/delete/<string:srno>', methods=['GET', 'POST'])
 def delete_post(srno):
     if request.method == 'POST':
