@@ -2,7 +2,7 @@
 
 
 "params":{
-"data-base":"postgres://qwchlhhtuuaqpz:1b4cbeb7293695e74bbf441f831e75985f57892439281d12b5e7ddd1ecb48b6e@ec2-54-246-89-234.eu-west-1.compute.amazonaws.com:5432/dd5paedfjguvi7",
+"data-base":"postgres://pwmrktgonjcssv:4b833fdabf64cbae502cb725eb6b3a7dfe0e75fd2fc15bf1b330e92d2b52dce3@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/do6ekqf6agn0p",
 "secret-key":"this-is-secret",
 "file-location":"static\\img",
 "email-username":"fighter7415963@gmail.com",
