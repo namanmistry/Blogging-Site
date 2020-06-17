@@ -5,10 +5,9 @@ import os
 import json
 app=Flask(__name__)
 db = SQLAlchemy(app)
-with open('config.json', 'r') as c:
-    params = json.load(c)
 
-app.config['DATABASE_URL'] ="postgres://pwmrktgonjcssv:4b833fdabf64cbae502cb725eb6b3a7dfe0e75fd2fc15bf1b330e92d2b52dce3@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/do6ekqf6agn0p"
+
+app.config['SQLALCHEMY_DATABASE_URI'] ="postgres://pwmrktgonjcssv:4b833fdabf64cbae502cb725eb6b3a7dfe0e75fd2fc15bf1b330e92d2b52dce3@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/do6ekqf6agn0p"
 class blogpost(db.Model):
 
     srno = db.Column(db.Integer, primary_key=True)
