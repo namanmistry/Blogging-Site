@@ -139,5 +139,32 @@ def contact1():
                           )
 
     return render_template('contact.html')
+
+@app.route('/dashboard', methods=['POST', 'GET'])
+def dashboard():
+    content = blogpost.query.all()
+    if 'user' in session and session['user'] == "naman":
+        return render_template('dashboard.html', content=content)
+
+    if request.method == "POST":
+        user_name = request.form.get('username')
+        user_password = request.form.get('pass')
+
+        if user_name == params['params']['login-username'] and user_password == params['params']['login-password']:
+
+            session['user'] = "naman"
+            return render_template('dashboard.html', content=content)
+        else:
+            return render_template('login.html')
+
+    else:
+        return render_template('login.html')
+    return render_template('login.html')
+@app.route('/logout', methods=['POST'])
+def logout():
+
+    session['user'] = False
+    return redirect('dashboard')
+
 if __name__=='__main__':
     app.run()
