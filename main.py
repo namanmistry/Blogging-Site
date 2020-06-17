@@ -1,12 +1,14 @@
 from flask import Flask,render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func, select
+import os
 import json
 app=Flask(__name__)
 db = SQLAlchemy(app)
 with open('config.json', 'r') as c:
     params = json.load(c)
-app.config['DATABASE_URL'] = params['params']['data-base']
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+app.config['DATABASE_URL'] =SQLALCHEMY_DATABASE_URI 
 class blogpost(db.Model):
 
     srno = db.Column(db.Integer, primary_key=True)
