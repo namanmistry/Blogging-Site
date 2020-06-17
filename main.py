@@ -27,7 +27,8 @@ class blogpost(db.Model):
     date = db.Column(db.String(12), nullable=True)
 @app.route('/')
 def home():
-    return render_template('index.html')
+    posts = blogpost.query.filter_by().all()
+    return render_template('index.html',posts=posts)
 
 if __name__=='__main__':
     app.run()
