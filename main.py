@@ -49,8 +49,24 @@ class contact(db.Model):
     
 @app.route('/')
 def home():
-    posts = blogpost.query.filter_by().all()
-    return render_template('index.html',posts=posts)
+    last = math.ceil(len(posts)/3)
+    page = request.args.get('page')
+    if not str(page).isnumeric():
+        page = 1
+    page = int(page)
+    posts = posts[(page-1)*3:(page-1)*3+3]
+    if page == 1:
+        prev1 = "#"
+        next1 = "/?page="+str(page+1)
+
+    elif page == last:
+        next1 = "#"
+        prev1 = "/?page="+str(page-1)
+    else:
+        next1 = "/?page="+str(page+1)
+        prev1 = "/?page="+str(page-1)
+
+    return render_template('index.html', posts=posts, next=next1, prev=prev1)
 
 @app.route('/about')
 def about():
