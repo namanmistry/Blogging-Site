@@ -44,7 +44,7 @@ def home():
 
 @app.route('/about')
 def about():
-    reviews = review1.query.order_by(func.rand()).all()
+    reviews = review1.query.order_by(func.random()).all()
     return render_template('about.html', reviews=reviews)
 
 @app.route('/review/<string:srno>', methods=['GET'])
