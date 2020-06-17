@@ -7,8 +7,8 @@ app=Flask(__name__)
 db = SQLAlchemy(app)
 with open('config.json', 'r') as c:
     params = json.load(c)
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-app.config['DATABASE_URL'] =SQLALCHEMY_DATABASE_URI 
+
+app.config['DATABASE_URL'] = params['params']['data-base']
 class blogpost(db.Model):
 
     srno = db.Column(db.Integer, primary_key=True)
