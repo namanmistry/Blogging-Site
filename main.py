@@ -1,6 +1,7 @@
 from flask import Flask,render_template
 import json
 app=Flask(__name__)
+db = SQLAlchemy(app)
 with open('config.json', 'r') as c:
     params = json.load(c)
 app.config['DATABASE_URL'] = params['params']['data-base']
