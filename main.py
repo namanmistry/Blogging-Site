@@ -7,9 +7,22 @@ from flask_mail import Mail
 import json
 import os
 import math
+with open('config.json', 'r') as c:
+    params = json.load(c)
+
 app=Flask(__name__)
 db = SQLAlchemy(app)
+app.secret_key = params['params']['secret-key']
+app.config['UPLOAD_FOLDER'] = params['params']['file-location']
+app.config.update(
+    MAIL_SERVER='smtp.gmail.com',
+    MAIL_PORT='465',
+    MAIL_USE_SSL=True,
+    MAIL_USERNAME=params['params']['email-username'],
+    MAIL_PASSWORD=params['params']['email-password']
+)
 
+mail = Mail(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] ="postgres://pwmrktgonjcssv:4b833fdabf64cbae502cb725eb6b3a7dfe0e75fd2fc15bf1b330e92d2b52dce3@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/do6ekqf6agn0p"
 class blogpost(db.Model):
