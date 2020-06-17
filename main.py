@@ -178,6 +178,84 @@ def logout():
 
     session['user'] = False
     return redirect('dashboard')
+@app.route('/upload_post', methods=['GET', 'POST'])
+def new_post():
+    if request.method == 'POST':
+        srno = request.form.get('srno')
+        title = request.form.get('title')
+        slug = request.form.get('slug')
+        content0 = request.form.get('content0')
+        content1 = request.form.get('content1')
+        content2 = request.form.get('content2')
+        content3 = request.form.get('content3')
+        content4 = request.form.get('content4')
+        content5 = request.form.get('content5')
+        content6 = request.form.get('content6')
+        content7 = request.form.get('content7')
+        content8 = request.form.get('content8')
+        content9 = request.form.get('content9')
+        
+        startseo=[]
+        endseo=[]
+        for i in range(10):
+            startseo.append(request.form.get(f'startseotag{i}'))
+            endseo.append(request.form.get(f'endseotag{i}'))
+        entry_seo=seo(sseo0=startseo[0],
+                    eseo0=endseo[0],
+                    sseo1=startseo[1],
+                    eseo1=endseo[1],
+                    sseo2=startseo[2],
+                    eseo2=endseo[2],
+                    sseo3=startseo[3],
+                    eseo3=endseo[3],
+                    sseo4=startseo[4],
+                    eseo4=endseo[4],
+                    sseo5=startseo[5],
+                    eseo5=endseo[5],
+                    sseo6=startseo[6],
+                    eseo6=endseo[6],
+                    sseo7=startseo[7],
+                    eseo7=endseo[7],
+                    sseo8=startseo[8],
+                    eseo8=endseo[8],
+                    sseo9=startseo[9],
+                    eseo9=endseo[9],
+                    
+                    srno=srno)
+        db.session.add(entry_seo)
+        db.session.commit()
+        new_file=[]
+        for i in range(10):
+            new_file.append(request.files[f'file{i}'])
+            if new_file[i].filename != "":
+                new_file[i].save(os.path.join(
+                    app.config['UPLOAD_FOLDER'], secure_filename(new_file[i].filename)))
+                os.rename(
+                f'static\img\\{new_file[i].filename}', f'static\img\\{srno+"."+str(i)}.jpg')
 
+            elif new_file[i].filename=="":
+                pass
+        entry = blogpost(srno=srno, title=title, content0=content0,
+         content1=content1,
+          content2=content2,
+           content3=content3,
+            content4=content4,
+             content5=content5,
+              content6=content6,
+               content7=content7,
+                content8=content8,
+                 content9=content9,
+
+
+                         slug=slug,like=0, date=datetime.now())
+        db.session.add(entry)
+        db.session.commit()
+        return redirect(url_for('dashboard'))
+
+@app.route('/upload', methods=['GET', 'POST'])
+def new_post_viewer():
+    # last=blogpost.query.filter_by().all()
+    # last_post=last[-1]
+    return render_template('newpost.html')
 if __name__=='__main__':
     app.run()
