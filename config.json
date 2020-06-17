@@ -2,7 +2,7 @@
 
 
 "params":{
-"data-base":"mysql://root:@localhost/mysql",
+"data-base":"postgres://qwchlhhtuuaqpz:1b4cbeb7293695e74bbf441f831e75985f57892439281d12b5e7ddd1ecb48b6e@ec2-54-246-89-234.eu-west-1.compute.amazonaws.com:5432/dd5paedfjguvi7",
 "secret-key":"this-is-secret",
 "file-location":"static\\img",
 "email-username":"fighter7415963@gmail.com",
