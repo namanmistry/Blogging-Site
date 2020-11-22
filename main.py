@@ -147,7 +147,7 @@ def contact1():
         db.session.commit()
         mail.send_message('New message from ' + username,
                           sender=email,
-                          recipients=["fighter7415963@gmail.com"],
+                          recipients=["namanmistry011@gmail.com"],
                           body="subject:" + subject + "\n" + "message:" + message
                           )
 
