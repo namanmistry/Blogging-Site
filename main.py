@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql.expression import func, select
 from datetime import datetime
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 from flask_mail import Mail
 import json
 import os
